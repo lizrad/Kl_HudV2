@@ -1,9 +1,17 @@
 var lastPos = null
 window.addEventListener('message', function (event) {
+    let data = event.data
+
+    // If action is to set volume svg
+    if (data.action != null && data.action == "Volume") {
+        VolumeSet(data.value)
+
+        // we dont need to do whatever it is down below
+        return
+    }
     $("#StatusHud #stress").hide()
     $("#StatusHud #playerid").hide()
     $("#StatusHud #fuel").hide()
-    let data = event.data
     loadStats = function () {
         $('#shieldval').html(Math.round(data.armour))
         $('#hungerlevel').html(Math.round(data.food))
@@ -102,3 +110,15 @@ var highPath =
     M17 19h-3a.75.75 0 01-.75-.75v-12.25a.75.75 0 01.75-.75h3a.75.75 0 01.75.75v12.25a.75.75 0 01-.75.75z
     M11 19h-3a.75.75 0 01-.75-.75v-8.25a.75.75 0 01.75-.75h3a.75.75 0 01.75.75v8.25a.75.75 0 01-.75.75z
     M5 19h-3a.75.75 0 01-.75-.75v-4.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75z" data-original="#000000" xmlns="http://www.w3.org/2000/svg"/>`
+
+
+// Set Svg according to current value
+function VolumeSet(value) {
+    if (value == 0) {
+        $("svg.iconstat").html(midPath)
+    } else if (value == 1) {
+        $("svg.iconstat").html(highPath)
+    } else if (value == 2) {
+        $("svg.iconstat").html(lowPath)
+    }
+}

@@ -139,3 +139,15 @@ Citizen.CreateThread(
     end
 )
 -- End Principal Loop
+
+AddEventHandler(
+    "lizard:VolumnChange",
+    function(vol)
+        SendNUIMessage(
+            {
+                action = "Volume",
+                value = vol
+            }
+        )
+    end
+)
