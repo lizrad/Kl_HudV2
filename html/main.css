@@ -17,7 +17,15 @@ body {
     bottom: 0.7vh;
     left: 0.7vh;
     display: flex;
+    /* flex-direction: column; */
+}
+
+.vShow {
     flex-direction: column;
+}
+
+.hShow {
+    flex-direction: row;
 }
 
 
@@ -34,12 +42,22 @@ body {
     margin-top: 0.2vh;
     border-radius: 0.4vh;
     height: 2vh;
+    margin-right: 0.7vh;
 }
 
 .fas {
     /* font-size: 0.7rem; */
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     vertical-align: middle;
+}
+
+.iconstat {
+    width: 3vh;
+    float: right;
+    text-align: right;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    fill: white;
 }
 
 .textstat {
